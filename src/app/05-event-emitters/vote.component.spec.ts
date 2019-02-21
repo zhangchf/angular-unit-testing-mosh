@@ -7,6 +7,13 @@ describe('VoteComponent', () => {
     component = new VoteComponent();
   });
 
-  it('', () => {
+  it('VoteChanged event', () => {
+    let totalVotes = null;
+    component.voteChanged.subscribe(tv => totalVotes = tv);
+
+    component.upVote();
+
+    expect(totalVotes).not.toBeNull();
+    expect(totalVotes).toBe(1);
   });
 });
